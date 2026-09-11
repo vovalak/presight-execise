@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-accent: oklch(51% 0.23 277);
+  --color-accent-soft: oklch(94% 0.04 277);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900 antialiased;
+}

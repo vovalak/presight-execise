@@ -29,3 +29,9 @@ yarn-error.log*
 
 .parcel-cache
 .idea/
+# sqlite database files (created by `yarn seed`)
+server/data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm

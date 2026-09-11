@@ -1,0 +1,19 @@
+name: presight-directory
+
+services:
+  app:
+    build: .
+    image: presight-directory:local
+    ports:
+      # Host port is configurable: `PORT=3010 docker compose up` if 3000 is taken.
+      - '${PORT:-3000}:3000'
+    environment:
+      # Used only when the database volume is empty (first start or after `down -v`).
+      SEED_COUNT: ${SEED_COUNT:-10000}
+      SEED: ${SEED:-42}
+    volumes:
+      - sqlite-data:/data
+    restart: unless-stopped
+
+volumes:
+  sqlite-data:

@@ -1,17 +1,28 @@
 {
   "name": "presight-execise",
   "version": "1.0.0",
-  "repository": "",
-  "author": "",
+  "private": true,
   "license": "MIT",
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": "^20.19.0 || >=22.13.0"
+  },
   "workspaces": [
     "client",
     "server"
   ],
   "scripts": {
-    "start": "lerna run start"
+    "dev": "concurrently -k -n server,client -c blue,magenta \"yarn workspace presight-server dev\" \"yarn workspace presight-client dev\"",
+    "seed": "yarn workspace presight-server seed",
+    "build": "yarn workspace presight-server build && yarn workspace presight-client build",
+    "start": "yarn workspace presight-server start",
+    "test": "yarn workspace presight-server test && yarn workspace presight-client test",
+    "typecheck": "yarn workspace presight-server typecheck && yarn workspace presight-client typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "lerna": "~8.2.1"
+    "concurrently": "^10.0.5",
+    "prettier": "^3.9.6"
   }
 }

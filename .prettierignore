@@ -1,0 +1,7 @@
+node_modules
+dist
+build
+coverage
+yarn.lock
+server/data
+docs/BRIEF.md
